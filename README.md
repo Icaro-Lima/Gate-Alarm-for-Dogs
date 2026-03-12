@@ -4,6 +4,8 @@ An ESP32-based gate alarm that helps prevent dogs from escaping when the gate is
 
 The system watches a gate-closed switch, waits 10 seconds after the gate opens, and then starts an audible alarm. It also supports a temporary silence button, visual status LEDs, and deep sleep to reduce battery drain while the gate is closed.
 
+![prototype](prototype.jpeg)
+
 ## Hardware
 
 - ESP32-WROOM-32D development board
