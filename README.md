@@ -13,7 +13,7 @@ The system watches a gate-closed switch, waits 10 seconds after the gate opens, 
 - 1 green LED
 - 1 yellow LED
 - 1 red LED
-- 3 resistors for LEDs, typically 220 ohm to 330 ohm
+- 1 resistor for the LEDs, `220 ohm` in the current build
 
 ## Pin Mapping
 
@@ -47,12 +47,13 @@ Logic:
 
 ### LEDs
 
-Each LED should be wired in series with a resistor.
+This build uses a single shared resistor on the LED ground return, based on the tested behavior of the current sketch where the LEDs are not expected to be on together during normal operation.
 
-- `GPIO25` -> resistor -> green LED anode
-- `GPIO26` -> resistor -> yellow LED anode
-- `GPIO27` -> resistor -> red LED anode
-- all LED cathodes -> `GND`
+- `GPIO25` -> green LED anode
+- `GPIO26` -> yellow LED anode
+- `GPIO27` -> red LED anode
+- green, yellow, and red LED cathodes tied together
+- shared cathode line -> `220 ohm` resistor -> `GND`
 
 ### Active buzzer
 
@@ -86,7 +87,7 @@ When the gate is open:
 
 When the gate is closed:
 
-- the silence timer is stored without the three green blinks
+- pressing the silence button has no practical effect on the current alarm flow
 
 ### Alarm output
 
